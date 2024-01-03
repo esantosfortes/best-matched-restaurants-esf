@@ -15,6 +15,7 @@
 	<description>best-matched-restaurants-esf</description>
 	<packaging>jar</packaging>
 	<properties>
+		<project.artifactId>best-matched-restaurants-esf</project.artifactId>
 		<java.version>21</java.version>
 		<spotless.version>2.35.0</spotless.version>
 		<google-java-format.version>1.19.1</google-java-format.version>
@@ -66,6 +67,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>${project.artifactId}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
