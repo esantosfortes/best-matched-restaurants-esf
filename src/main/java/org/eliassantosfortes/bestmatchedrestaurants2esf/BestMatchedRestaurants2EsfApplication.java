@@ -43,44 +43,39 @@ public class BestMatchedRestaurants2EsfApplication {
         String cuisineName = null;
 
         restaurantName =
-            (String)
-                buildPrompt(
-                    reader,
-                    "Do you want to search for restaurant name? (y/n) ",
-                    restaurantName,
-                    "Enter restaurant name: ");
+            buildStringPrompt(
+                reader,
+                "Do you want to search for restaurant name? (y/n) ",
+                restaurantName,
+                "Enter restaurant name: ");
 
         customerRating =
-            (Integer)
-                buildPrompt(
-                    reader,
-                    "Do you want to search for customer rating? (y/n) ",
-                    customerRating,
-                    "Enter customer rating (1-5): ");
+            buildIntegerPrompt(
+                reader,
+                "Do you want to search for customer rating? (y/n) ",
+                customerRating,
+                "Enter customer rating (1-5): ");
 
         distance =
-            (Integer)
-                buildPrompt(
-                    reader,
-                    "Do you want to search for the Distance? (y/n) ",
-                    distance,
-                    "Enter distance (miles): ");
+            buildIntegerPrompt(
+                reader,
+                "Do you want to search for the Distance? (y/n) ",
+                distance,
+                "Enter distance (miles): ");
 
         price =
-            (Double)
-                buildPrompt(
-                    reader,
-                    "Do you want to search for the Price? (y/n) ",
-                    price,
-                    "Enter the price ($): ");
+            buildDoublePrompt(
+                reader,
+                "Do you want to search for the Price? (y/n) ",
+                price,
+                "Enter the price ($): ");
 
         cuisineName =
-            (String)
-                buildPrompt(
-                    reader,
-                    "Do you want to search for cuisine name? (y/n) ",
-                    cuisineName,
-                    "Enter cuisine type: ");
+            buildStringPrompt(
+                reader,
+                "Do you want to search for cuisine name? (y/n) ",
+                cuisineName,
+                "Enter cuisine type: ");
 
         consumeEndpoint(restTemplate, restaurantName, customerRating, distance, price, cuisineName);
 
@@ -94,12 +89,32 @@ public class BestMatchedRestaurants2EsfApplication {
     };
   }
 
-  private static Object buildPrompt(
-      LineReader reader, String searchedField, Object paramValue, String promptMessage) {
+  private static String buildStringPrompt(
+      LineReader reader, String searchedField, String paramValue, String promptMessage) {
     boolean isSearchField = reader.readLine(searchedField).trim().equalsIgnoreCase("y");
 
     if (isSearchField) {
       paramValue = reader.readLine(promptMessage);
+    }
+    return paramValue;
+  }
+
+  private static Integer buildIntegerPrompt(
+      LineReader reader, String searchedField, Integer paramValue, String promptMessage) {
+    boolean isSearchField = reader.readLine(searchedField).trim().equalsIgnoreCase("y");
+
+    if (isSearchField) {
+      paramValue = Integer.parseInt(reader.readLine(promptMessage));
+    }
+    return paramValue;
+  }
+
+  private static Double buildDoublePrompt(
+      LineReader reader, String searchedField, Double paramValue, String promptMessage) {
+    boolean isSearchField = reader.readLine(searchedField).trim().equalsIgnoreCase("y");
+
+    if (isSearchField) {
+      paramValue = Double.parseDouble(reader.readLine(promptMessage));
     }
     return paramValue;
   }

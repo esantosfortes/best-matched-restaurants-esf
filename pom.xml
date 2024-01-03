@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>org.eliassantosfortes</groupId>
 	<artifactId>best-matched-restaurants-esf</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>best-matched-restaurants-esf</name>
 	<description>best-matched-restaurants-esf</description>
 	<packaging>jar</packaging>
@@ -57,6 +57,11 @@
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
 			<version>${gson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>6.1.2</version>
 		</dependency>
 	</dependencies>
 
