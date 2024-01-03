@@ -1,11 +1,18 @@
 package org.eliassantosfortes.bestmatchedrestaurants2esf.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.ExampleObject;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import org.eliassantosfortes.bestmatchedrestaurants2esf.model.Restaurant;
 import org.eliassantosfortes.bestmatchedrestaurants2esf.service.FileService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,7 +31,42 @@ public class RestaurantController extends BaseController {
     this.fileService.readCSVFiles();
   }
 
-  @GetMapping("/restaurants")
+  @Operation(
+      summary = "Find Restaurants",
+      description = "Returns a list of restaurants based on criteria")
+  @ApiResponse(
+      responseCode = "200",
+      description = "Successful retrieval of restaurants",
+      content =
+          @Content(
+              mediaType = MediaType.APPLICATION_JSON_VALUE,
+              array = @ArraySchema(schema = @Schema(implementation = Restaurant.class)),
+              examples =
+                  @ExampleObject(
+                      name = "Restaurants Example",
+                      value =
+                          "[{\"name\":\"Deliciouszilla\",\"customerRating\":4,\"distance\":1,\"price\":15,\"cuisineId\":2,\"cuisineName\":\"Chinese\"}, "
+                              + "{\"name\":\"Gusto Delicious\",\"customerRating\":5,\"distance\":3,\"price\":50,\"cuisineId\":2,\"cuisineName\":\"Chinese\"}, "
+                              + "{\"name\":\"Deliciousoryx\",\"customerRating\":1,\"distance\":5,\"price\":25,\"cuisineId\":2,\"cuisineName\":\"Chinese\"}]")))
+  @ApiResponse(
+      responseCode = "400",
+      description = "Bad Request",
+      content =
+          @Content(
+              mediaType = MediaType.APPLICATION_JSON_VALUE,
+              schema = @Schema(implementation = ErrorResponse.class),
+              examples =
+                  @ExampleObject(
+                      name = "BadRequest Example",
+                      value =
+                          "{\n"
+                              + "    \"type\": \"about:blank\",\n"
+                              + "    \"title\": \"Bad Request\",\n"
+                              + "    \"status\": 400,\n"
+                              + "    \"detail\": \"Failed to convert 'price' with value: 'x40'\",\n"
+                              + "    \"instance\": \"/search/restaurants\"\n"
+                              + "}")))
+  @GetMapping(value = "/restaurants", produces = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<?> findRestaurants(
       @RequestParam(required = false) String restaurantName,
       @RequestParam(required = false) Integer customerRating,

@@ -11,7 +11,7 @@ The API endpoint receives five possible search parameters as RequestParams and o
 The response provides a list of the top five restaurants, filtered using the RequestParams and ordered based on the aforementioned priority criteria.
 
 ### Testing the API Endpoint
-There are two recommended ways to test this API endpoint:
+There are three recommended ways to test this API endpoint:
 1. **Using Postman or Insomnia:** Utilize these tools to perform API requests and test responses.
    - To test using Postman or Insomnia, create a GET request to the URL `http://localhost:8080/search/restaurants`.
    - Include optional Query Parameters:
@@ -20,19 +20,27 @@ There are two recommended ways to test this API endpoint:
      - `distance`
      - `price`
      - `cuisineName`
+   - ![Postman usage](https://ibb.co/kXPLYWc "Postman usage")
+
 2. **Built-in Command Line Prompt:** The application includes a command line prompt, allowing searches without the need for third-party tools or interfaces.
+3. **Browsers like Chrome or Firefox:** The same URL you'd use in Postman or Imsomnia can be used in the browser.
+    - You will have to manually insert each of the aforementioned search parameter by hand:
+    - ![Browser usage](https://ibb.co/QJPs7yh "Browser usage")
 
 ### Libraries and Tools Used
 - **Lombok:** Reduces boilerplate code in models.
 - **jline:** Facilitates user-friendly command-line prompting.
 - **Gson:** Enables pretty printing of results in the terminal.
 - **Spotless:** Enforces Google code formatting standards.
+- **Swagger-UI:** For documenting the API.
 
 ## Build Instructions
 The project is already compiled into the jar file `best-matched-restaurants-esf.jar`. But if you wish to build and compile the project again, ensure you have Maven and JDK 21 installed.
 
 ### Building the Project
-Run the following command:
+Building the project involves performing checks for code style, running unit tests, and packaging the application into a JAR file.
+
+To build the project, execute the following command:
 ```bash
 mvn clean install
 ```
@@ -46,7 +54,7 @@ mvn spotless:apply
 ```
 
 ## Run instructions
-To run the application from the project structure, execute the following command:
+To run the application from the jar file in the project structure, execute the following command:
 ```bash
 java -jar target/best-matched-restaurants-esf.jar
 ```
@@ -54,3 +62,15 @@ If you have only the jar file, execute the following command:
 ```bash
 java -jar best-matched-restaurants-esf.jar
 ```
+#### Additional Info
+Both .csv files `/src/main/resources/data/cuisines.csv` and `/src/main/resources/data/restaurants.csv` are already packaged with the jar file `best-matched-restaurants-esf.jar` so there is no need to have these files if you are running the jar file.
+
+### Run the application with Spring-boot:
+If you want to run the application from the project root using spring-boot run:
+```bash
+mvn spring-boot:run
+```
+
+## View API Documentation
+To view the API documentation using Swagger-UI, visit the following link after the Application is Running:
+`http://localhost:8080/swagger-ui/index.html`
