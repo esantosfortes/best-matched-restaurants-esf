@@ -20,12 +20,12 @@ There are three recommended ways to test this API endpoint:
      - `distance`
      - `price`
      - `cuisineName`
-   - ![Postman usage](https://ibb.co/kXPLYWc "Postman usage")
+   - ![Postman usage](https://i.ibb.co/KW8tC3y/using-postman.jpg "Postman usage")
 
 2. **Built-in Command Line Prompt:** The application includes a command line prompt, allowing searches without the need for third-party tools or interfaces.
 3. **Browsers like Chrome or Firefox:** The same URL you'd use in Postman or Imsomnia can be used in the browser.
     - You will have to manually insert each of the aforementioned search parameter by hand:
-    - ![Browser usage](https://ibb.co/QJPs7yh "Browser usage")
+    - ![Browser usage](https://i.ibb.co/CwbxpR4/using-browser.jpg "Browser usage")
 
 ### Libraries and Tools Used
 - **Lombok:** Reduces boilerplate code in models.
