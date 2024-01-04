@@ -77,3 +77,5 @@ mvn spring-boot:run
 ## View API Documentation
 To view the API documentation using Swagger-UI, visit the following link after the Application is Running:
 `http://localhost:8080/swagger-ui/index.html`
+
+![Swagger-UI Docs](https://i.ibb.co/sHq53jV/swagger-docs.jpg "Swagger-UI Docs")
