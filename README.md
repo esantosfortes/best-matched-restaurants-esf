@@ -11,7 +11,11 @@ The API endpoint receives five possible search parameters as RequestParams and o
 The response provides a list of the top five restaurants, filtered using the RequestParams and ordered based on the aforementioned priority criteria.
 
 ### Testing the API Endpoint
-There are three recommended ways to test this API endpoint:
+
+Run the app. For more information take a look at the `Run instructions` section of this documentation. Once the app is running you may proceed to choose one of the following.
+
+There are three recommended ways to test this application:
+
 1. **Using Postman or Insomnia:** Utilize these tools to perform API requests and test responses.
    - To test using Postman or Insomnia, create a GET request to the URL `http://localhost:8080/search/restaurants`.
    - Include optional Query Parameters:
@@ -23,6 +27,33 @@ There are three recommended ways to test this API endpoint:
    - ![Postman usage](https://i.ibb.co/KW8tC3y/using-postman.jpg "Postman usage")
 
 2. **Built-in Command Line Prompt:** The application includes a command line prompt, allowing searches without the need for third-party tools or interfaces.
+   ```bash
+      Do you want to search for restaurant name? (y/n) y
+      Enter restaurant name: Delicious
+      Do you want to search for customer rating? (y/n) y
+      Enter customer rating (1-5): 4
+      Do you want to search for cuisine name? (y/n) y
+      Enter cuisine type: Russian
+      Received response:
+      [
+        {
+         "name": "Bang Delicious",
+         "customerRating": 5,
+         "distance": 2,
+         "price": 15.0,
+         "cuisineId": 18,
+         "cuisineName": "Russian"
+        },{
+         "name": "Crisp Delicious",
+         "customerRating": 5,
+         "distance": 2,
+         "price": 45.0,
+         "cuisineId": 18,
+         "cuisineName": "Russian"
+        }
+      ]
+      ```
+   
 3. **Browsers like Chrome or Firefox:** The same URL you'd use in Postman or Imsomnia can be used in the browser.
     - You will have to manually insert each of the aforementioned search parameter by hand:
     - ![Browser usage](https://i.ibb.co/CwbxpR4/using-browser.jpg "Browser usage")
