@@ -33,12 +33,13 @@ There are three recommended ways to test this API endpoint:
 - **Gson:** Enables pretty printing of results in the terminal.
 - **Spotless:** Enforces Google code formatting standards.
 - **Swagger-UI:** For documenting the API.
+- **JUnit & Mockito:** For Unit tests and Integration tests.
 
 ## Build Instructions
 The project is already compiled into the jar file `best-matched-restaurants-esf.jar`. But if you wish to build and compile the project again, ensure you have Maven and JDK 21 installed.
 
 ### Building the Project
-Building the project involves performing checks for code style, running unit tests, and packaging the application into a JAR file.
+Building the project involves performing checks for code style, running unit tests and integration tests, and packaging the application into a JAR file.
 
 To build the project, execute the following command:
 ```bash
@@ -54,7 +55,9 @@ mvn spotless:apply
 ```
 
 ## Run instructions
-To run the application from the jar file in the project structure, execute the following command:
+To run the application from the jar file in the project structure, you'll need minimal JRE 17 version or JDK 21.
+
+Execute the following command from the project root:
 ```bash
 java -jar target/best-matched-restaurants-esf.jar
 ```
