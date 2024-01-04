@@ -57,7 +57,7 @@ public class FileServiceImpl implements FileService {
                           data[0],
                           Integer.parseInt(data[1]),
                           Integer.parseInt(data[2]),
-                          Integer.parseInt(data[3]),
+                          Double.parseDouble(data[3]),
                           Integer.parseInt(data[4]),
                           "")));
     } catch (IOException e) {

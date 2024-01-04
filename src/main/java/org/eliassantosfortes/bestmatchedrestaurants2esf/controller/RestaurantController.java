@@ -81,6 +81,12 @@ public class RestaurantController extends BaseController {
       return validationResponse;
     }
 
+    ResponseEntity<ErrorResponse> customerRatingValidation = validateCustomerRating(customerRating);
+
+    if (customerRatingValidation != null) {
+      return customerRatingValidation;
+    }
+
     if (allParametersAreNull(restaurantName, customerRating, distance, price, cuisineName)) {
       return ResponseEntity.ok(List.of());
     }

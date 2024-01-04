@@ -40,6 +40,16 @@ public class BaseController {
     return true;
   }
 
+  protected ResponseEntity<ErrorResponse> validateCustomerRating(Object customerRatingString) {
+    if (customerRatingString instanceof Integer) {
+      int customerRating = Integer.parseInt(customerRatingString.toString());
+      if (customerRating < 1 || customerRating > 5) {
+        return createBadRequestErrorResponse("'customerRating' must be a integer between 1-5");
+      }
+    }
+    return null;
+  }
+
   @Setter
   @Getter
   protected static class ErrorResponse {
