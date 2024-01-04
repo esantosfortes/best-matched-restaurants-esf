@@ -34,6 +34,7 @@ There are three recommended ways to test this API endpoint:
 - **Spotless:** Enforces Google code formatting standards.
 - **Swagger-UI:** For documenting the API.
 - **JUnit & Mockito:** For Unit tests and Integration tests.
+- **jaCoCo:** To generate code coverage reports.
 
 ## Build Instructions
 The project is already compiled into the jar file `best-matched-restaurants-esf.jar`. But if you wish to build and compile the project again, ensure you have Maven and JDK 21 installed.
@@ -79,3 +80,12 @@ To view the API documentation using Swagger-UI, visit the following link after t
 `http://localhost:8080/swagger-ui/index.html`
 
 ![Swagger-UI Docs](https://i.ibb.co/sHq53jV/swagger-docs.jpg "Swagger-UI Docs")
+
+## Run code coverage Report
+To run code coverage report using jaCoCo run the command:
+```bash
+mvn clean verify
+```
+The open in browser the generated file: `/target/site/jacoco/index.html`
+
+![jaCoCo code coverage report](https://i.ibb.co/4gBWcY9/jacoco-coverage.jpg "jaCoCo code coverage report")
